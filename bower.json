@@ -1,0 +1,22 @@
+{
+  "name": "Angular-runpath",
+  "version": "0.1.0",
+  "authors": [
+    "Nico"
+  ],
+  "description": "Echo base front end framework",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "~>3.0.3"
+  }
+}
