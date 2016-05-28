@@ -2,3 +2,5 @@ rules:
   indentation:
     - 2
     - size: 4
+
+  class-name-format: 0

@@ -19,6 +19,7 @@
         pixrem = require('gulp-pixrem'),
         eslint = require('gulp-eslint'),
         concat = require('gulp-concat'),
+        connect = require('gulp-connect'),
         uglify = require('gulp-uglify'),
         sourcemaps = require('gulp-sourcemaps'),
         livereload = require('gulp-livereload'),
@@ -42,7 +43,26 @@
     //  Default
     // =========================================================================
 
-    gulp.task('default', sequence('clean', ['styles', 'images', 'scripts'], 'watch')); // Options: 'tests'
+    gulp.task('default', sequence('clean', ['styles', 'images', 'scripts'], 'connect', 'watch')); // Options: 'tests'
+
+    // Server with livereload
+
+    gulp.task('connect', function() {
+        connect.server({
+            root: config.dist,
+            livereload: true
+        });
+    });
+
+    gulp.task('html', function () {
+        gulp.src(config.dist + '/*.html')
+        .pipe(connect.reload());
+    })
+
+    gulp.task('css'), function () {
+        gulp.src(config.dist + '/css/main.css')
+        .pipe(connect.reload());
+    }
 
     //  Watch
     // =========================================================================
@@ -58,10 +78,12 @@
         gulp.watch(config.app + '/img/**/*', ['images']);
 
         // Start listening for changes
-        livereload.listen();
+        //livereload.listen();
 
         // Watch any files in dist/, reload on change
         gulp.watch([config.dist + '/**']).on('change', livereload.changed);
+
+        gulp.watch([config.dist + '/*.html'], ['html']);
     });
 
     //  Clean
@@ -250,4 +272,5 @@
                 message: 'Images task complete'
             }));
     });
+
 })();
