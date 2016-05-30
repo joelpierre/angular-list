@@ -24,7 +24,6 @@ bower_components/*
 
 # Dist structure
 dist/img/*
-dist/js/*
 dist/css/*
 
 # Tests

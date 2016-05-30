@@ -225,29 +225,29 @@
     //  JS - Concat, minify etc
     // =========================================================================
 
-    gulp.task('js', function gulpTaskJS() {
-        gulp.src([config.app + '/js/**/*.js'])
-            .pipe(plumber({
-                errorHandler: function plumberScripts(err) {
-                    notify.onError({
-                        title: 'Script Compile Error',
-                        message: '<%= error.message %>',
-                        sound: 'Sosumi'
-                    })(err);
-                    this.emit('end');
-                }
-            }))
-            .pipe(sourcemaps.init())
-            .pipe(concat('main.js'))
-            .pipe(gulp.dest(config.dist + '/js'))
-            .pipe(rename({suffix: '.min'}))
-            .pipe(uglify())
-            .pipe(sourcemaps.write('./'))
-            .pipe(gulp.dest(config.dist + '/js'))
-            .pipe(notify({
-                message: 'Scripts task complete'
-            }));
-    });
+    // gulp.task('js', function gulpTaskJS() {
+    //     gulp.src([config.app + '/js/**/*.js'])
+    //         .pipe(plumber({
+    //             errorHandler: function plumberScripts(err) {
+    //                 notify.onError({
+    //                     title: 'Script Compile Error',
+    //                     message: '<%= error.message %>',
+    //                     sound: 'Sosumi'
+    //                 })(err);
+    //                 this.emit('end');
+    //             }
+    //         }))
+    //         .pipe(sourcemaps.init())
+    //         .pipe(concat('main.js'))
+    //         .pipe(gulp.dest(config.dist + '/js'))
+    //         .pipe(rename({suffix: '.min'}))
+    //         .pipe(uglify())
+    //         .pipe(sourcemaps.write('./'))
+    //         .pipe(gulp.dest(config.dist + '/js'))
+    //         .pipe(notify({
+    //             message: 'Scripts task complete'
+    //         }));
+    // });
 
     //  Images - Imagemin
     // =========================================================================
