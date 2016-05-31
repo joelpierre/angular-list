@@ -1,6 +1,13 @@
 .album {
     &__wrapper {
+        margin: 3rem auto;
+    }
 
+    &__item {
+        width: 25%;
+        display: inline-block;
+        vertical-align: top;
+        float: none;
     }
 
     &__details {
@@ -8,6 +15,7 @@
         border: 0;
         text-align: center;
         position: relative;
+        background: transparent;
     }
 
     &__title {
@@ -25,6 +33,10 @@
         overflow: hidden;
         width: 75%;
         margin: 0 auto;
+        border: 3px solid #19789d;
+        border-radius: 2%;
+        box-shadow: 2px 2px 8px 0 rgba(25, 120, 157, 0.36);
+
     }
 
     &__overlay {

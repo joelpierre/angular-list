@@ -18,26 +18,40 @@
 </head>
 <body>
     <div ng-app='app' ng-controller='MyController'>
-        <div class="filter__bar">
+        <div class="header">
+            <div class="filter__bar">
 
-            <div class="form-group filter__input">
-                <label class="filter__label" for="exampleInputEmail1">Email address</label>
-                <input class="form-control" ng-model="byTitle" id="search" class="form-control" placeholder="Filter text">
+                <div class="form-group filter__input">
+                    <label class="filter__label" for="exampleInputEmail1">Search Record</label>
+                    <input class="form-control" ng-model="byTitle" id="search" class="form-control" placeholder="Filter text">
+                </div>
+
+                <div class="filter__pagination-group">
+                    <span class="filter__pagination-label">Items per page</span>
+                    <select ng-model="pageSize" id="pageSize" class="form-control filter__page-input">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20" ng-selected="true">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+
+                        <!-- Remove comment if you want to add a "Show All" option (not advised
+                        due the amount of data returned at the moment) -->
+
+                        <!-- <option value="{{showAll}}">All</option> -->
+                    </select>
+                </div>
             </div>
-
-            <select ng-model="pageSize" id="pageSize" class="form-control">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20" ng-selected="true">20</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-
-                <!-- Remove comment if you want to add a "Show All" option (not advised
-                due the amount of data returned at the moment) -->
-
-                <!-- <option value="{{showAll}}">All</option> -->
-            </select>
+        </div>
+        <div class="page-controls">
+            <button class="page-controls__button" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </button>
+            {{currentPage+1}} / {{totalPages}}
+            <button class="page-controls__button" ng-disabled="currentPage >= totalPages/pageSize - 1" ng-click="currentPage=currentPage+1">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
         </div>
 
         <div class="album__wrapper">
@@ -52,13 +66,6 @@
             </div>
         </div>
 
-        <button ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">
-            Previous
-        </button>
-        {{currentPage+1}} / {{totalPages}}
-        <button ng-disabled="currentPage >= totalPages/pageSize - 1" ng-click="currentPage=currentPage+1">
-            Next
-        </button>
     </div>
     <script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
 </body>
