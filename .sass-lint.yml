@@ -4,3 +4,5 @@ rules:
     - size: 4
 
   class-name-format: 0
+
+  property-sort-order: 0

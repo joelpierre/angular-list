@@ -1,0 +1,61 @@
+.album {
+    &__wrapper {
+
+    }
+
+    &__details {
+        margin: 0;
+        border: 0;
+        text-align: center;
+        position: relative;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+    }
+
+    &__image {
+        width: 100%;
+    }
+
+    &__image-group {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    &__overlay {
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .5);
+        opacity: 0;
+        transition: opacity .5s;
+
+        &:hover{
+            opacity: 1;
+        }
+
+    }
+
+    &__button {
+        width: 75%;
+        background: none;
+        border: 2px solid #fff;
+        text-transform: uppercase;
+        color: white;
+        padding: 1rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 40%;
+        bottom: 40%;
+    }
+}

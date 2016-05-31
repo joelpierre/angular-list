@@ -24,6 +24,7 @@
         sourcemaps = require('gulp-sourcemaps'),
         livereload = require('gulp-livereload'),
         notify = require('gulp-notify'),
+        ngAnnotate = require('gulp-ng-annotate'),
         del = require('del'),
         plumber = require('gulp-plumber'),
         sequence = require('gulp-sequence'),
@@ -222,32 +223,21 @@
             }));
     });
 
-    //  JS - Concat, minify etc
+    //  JS - Concat angular files in a single file namede app.js
     // =========================================================================
 
-    // gulp.task('js', function gulpTaskJS() {
-    //     gulp.src([config.app + '/js/**/*.js'])
-    //         .pipe(plumber({
-    //             errorHandler: function plumberScripts(err) {
-    //                 notify.onError({
-    //                     title: 'Script Compile Error',
-    //                     message: '<%= error.message %>',
-    //                     sound: 'Sosumi'
-    //                 })(err);
-    //                 this.emit('end');
-    //             }
-    //         }))
-    //         .pipe(sourcemaps.init())
-    //         .pipe(concat('main.js'))
-    //         .pipe(gulp.dest(config.dist + '/js'))
-    //         .pipe(rename({suffix: '.min'}))
-    //         .pipe(uglify())
-    //         .pipe(sourcemaps.write('./'))
-    //         .pipe(gulp.dest(config.dist + '/js'))
-    //         .pipe(notify({
-    //             message: 'Scripts task complete'
-    //         }));
-    // });
+    gulp.task('js', function () {
+        gulp.src([config.app + '/js/**/app.js', config.app + '/js/**/*.js'])
+        .pipe(sourcemaps.init())
+        .pipe(concat('app.js'))
+        .pipe(ngAnnotate())
+        //.pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(config.dist + '/js'))
+        .pipe(notify({
+            message: 'Scripts task complete'
+        }));
+    })
 
     //  Images - Imagemin
     // =========================================================================
