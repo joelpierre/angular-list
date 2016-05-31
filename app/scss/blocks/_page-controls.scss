@@ -1,0 +1,21 @@
+.page-controls {
+    padding: 2rem;
+    text-align: center;
+    background-color: #7299c6;
+    color: #ffffff;
+    border-top: 2px solid #19789D;
+    border-bottom: 2px solid #19789D;
+
+    &__button {
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        font-size: 1.7rem;
+        display: inline-block;
+
+        &:hover {
+            background-color: #19789D;
+            border-radius: 50%;
+        }
+    }
+}
