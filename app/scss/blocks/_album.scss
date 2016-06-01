@@ -4,10 +4,31 @@
     }
 
     &__item {
-        width: 25%;
+
         display: inline-block;
+        width: 25%;
         vertical-align: top;
-        float: none;
+
+        @media (max-width: $break-large) {
+            display: inline-block;
+            width: 33%;
+        }
+
+        @media (max-width: $break-medium) {
+            display: inline-block;
+            width: 50%;
+        }
+
+        @media (max-width: $break-small) {
+            width: 100%;
+        }
+    }
+
+    &__id {
+        display: block;
+        width: 100%;
+        background-color: $white;
+        border-bottom: 2px solid $shadow;
     }
 
     &__details {
@@ -33,9 +54,9 @@
         overflow: hidden;
         width: 75%;
         margin: 0 auto;
-        border: 3px solid #19789d;
+        border: 2px solid $turquoise;
         border-radius: 2%;
-        box-shadow: 2px 2px 8px 0 rgba(25, 120, 157, 0.36);
+        box-shadow: 2px 2px 8px 0 $shadow;
 
     }
 
@@ -46,11 +67,11 @@
         right: 0;
         top: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, .5);
+        background-color: $overlay;
         opacity: 0;
         transition: opacity .5s;
 
-        &:hover{
+        &:hover {
             opacity: 1;
         }
 
@@ -59,9 +80,9 @@
     &__button {
         width: 75%;
         background: none;
-        border: 2px solid #fff;
+        border: 2px solid $white;
         text-transform: uppercase;
-        color: white;
+        color: $white;
         padding: 1rem;
         position: absolute;
         left: 0;
