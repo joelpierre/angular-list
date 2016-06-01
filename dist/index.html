@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="page-controls">
-            <button class="page-controls__button" ng-disabled="currentPage === 0" ng-class="'disabled' : currentPage == 0" ng-click="currentPage = currentPage - 1">
+            <button class="page-controls__button" ng-disabled="currentPage === 0" ng-class='{"disabled" : currentPage == 0}' ng-click="currentPage = currentPage - 1">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </button>
             {{currentPage + 1}} / {{getTotalPage()}}

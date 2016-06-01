@@ -10,8 +10,10 @@ angular.module('app')
          * @returns {Number}
          */
         $scope.getTotalPage = function() {
-            $scope.totalPages = Math.ceil($scope.albums.length/$scope.pageSize);
-            return $scope.totalPages;
+            if($scope.albums) {
+                $scope.totalPages = Math.ceil($scope.albums.length/$scope.pageSize);
+                return $scope.totalPages;
+            }
         };
 
         /**
