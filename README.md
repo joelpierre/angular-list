@@ -22,3 +22,6 @@ app/
     ├── factory.js
     └── filter.js
 ```
+#Gulp server
+
+When gulp runs is possible to preview the app at localhost:8080. Gulp serve will autoreload the page when the any file in the dist folder is changed.
