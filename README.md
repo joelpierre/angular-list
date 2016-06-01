@@ -1,7 +1,9 @@
-# angular-list
+# Angular-list
 
 Simple app that pulls dummy datas from api. 
 It features pagination and search by title.
+
+# Folder structure of development app
 
 ```
 app/
