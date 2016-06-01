@@ -47,7 +47,7 @@
 
     gulp.task('default', sequence('clean', ['styles', 'images', 'scripts'], 'connect', 'watch')); // Options: 'tests'
 
-    // Server with livereload
+    // Gulp server with livereload
 
     gulp.task('connect', function() {
         connect.server({
@@ -56,15 +56,10 @@
         });
     });
 
-    gulp.task('html', function () {
+    gulp.task('compiled', function () {
         gulp.src(config.dist + '/*.html')
         .pipe(connect.reload());
     })
-
-    gulp.task('css'), function () {
-        gulp.src(config.dist + '/css/main.min.css')
-        .pipe(connect.reload());
-    }
 
     //  Watch
     // =========================================================================
@@ -79,13 +74,9 @@
         // Watch image files
         gulp.watch(config.app + '/img/**/*', ['images']);
 
-        // Start listening for changes
-        //livereload.listen();
-
         // Watch any files in dist/, reload on change
-        gulp.watch([config.dist + '/**']).on('change', livereload.changed);
+        gulp.watch([config.dist + '/**'], ['compiled']);
 
-        gulp.watch([config.dist + '/*.html'], ['html']);
     });
 
     //  Clean
