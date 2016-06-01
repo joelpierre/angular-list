@@ -28,6 +28,7 @@
         del = require('del'),
         plumber = require('gulp-plumber'),
         sequence = require('gulp-sequence'),
+        strip = require('gulp-strip-comments'),
 
         //  Config vars
         // =====================================================================
@@ -61,7 +62,7 @@
     })
 
     gulp.task('css'), function () {
-        gulp.src(config.dist + '/css/main.css')
+        gulp.src(config.dist + '/css/main.min.css')
         .pipe(connect.reload());
     }
 
@@ -231,7 +232,7 @@
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())
-        //.pipe(uglify())
+        .pipe(strip())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.dist + '/js'))
         .pipe(notify({

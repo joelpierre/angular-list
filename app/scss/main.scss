@@ -13,6 +13,12 @@
 @import './bower_components/normalize.css/normalize';
 
 //==============================================================================
+//  Settings
+//==============================================================================
+
+@import 'settings';
+
+//==============================================================================
 //  Partials
 //==============================================================================
 
@@ -20,4 +26,16 @@
 
 body {
     font-family: helvetica;
+    background-color: $main-background;
+}
+
+.clearfix {
+    &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: ' ';
+        clear: both;
+        height: 0;
+	}
 }
