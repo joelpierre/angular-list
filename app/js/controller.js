@@ -6,11 +6,12 @@ angular.module('app')
 
         /**
          * @name getTotalPage
-         * @desc Gets the current page and the paginator filter
+         * @desc Gets the number of pages when the pagination option changes
          * @returns {Number}
          */
         $scope.getTotalPage = function() {
-            return Math.ceil($scope.albums.length/$scope.pageSize);
+            $scope.totalPages = Math.ceil($scope.albums.length/$scope.pageSize);
+            return $scope.totalPages;
         };
 
         /**
@@ -19,6 +20,12 @@ angular.module('app')
          * @returns {Array}
          */
         function getAlbums() {
+
+            /**
+             * @name getDetails
+             * @desc A method defined in factory that retrives data from API
+             * @returns {Object}
+             */
             albumsData.getDetails()
                 .success(function(albums){
                     $scope.albums = albums;

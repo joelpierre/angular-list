@@ -4,16 +4,18 @@
     color: $white;
     border-top: 2px solid $dark-turquoise;
     border-bottom: 1px solid $dark-turquoise;
-    padding: .5rem 0;
+    padding: .8rem 0;
 
     &__button {
         background-color: transparent;
         border: 0;
         cursor: pointer;
-        font-size: 1.7rem;
+        font-size: 1.1rem;
         display: inline-block;
         transition: .3s;
         border-radius: 50%;
+        vertical-align: middle;
+        margin: 0 .2rem;
 
         &:hover {
             background-color: $dark-turquoise;
